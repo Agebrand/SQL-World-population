@@ -1,36 +1,34 @@
-SELECT SUM(py.population)
+SELECT SUM(py.population) 'Total Oceania, 2005'
 FROM population_years py
 INNER JOIN countries c 
 ON c.id=py.country_id
 WHERE c.continent = 'Oceania' AND py.year <= 2005;
-SELECT AVG(py.population) 
+
+SELECT AVG(population) 'Average S.America, 2003'
 FROM population_years py
-INNER JOIN countries c 
+INNER JOIN countries c
 ON c.id = py.country_id
-WHERE py.year = 2003 AND c.continent = 'South America';
+WHERE c.continent = 'South America' AND py.year <= 2003;
 
 SELECT name, MIN(population) 
 FROM population_years py
 INNER JOIN countries c
-ON c.id = py.country_id
-WHERE year = '2007';
+ON py.country_id = c.id
+WHERE year = 2007;
 
-/*
-SELECT AVG(py.population)
+SELECT AVG(py.population) 'Average Poland'
 FROM population_years py
 INNER JOIN countries c
-ON py.id = c.id
-WHERE name = 'Poland'
-GROUP BY name, year;
+ON py.country_id = c.id
+WHERE name = 'Poland';
 
 SELECT c.name 
 FROM countries c
 WHERE name LIKE '% The%';
 
-SELECT continent, SUM(py.population)
+SELECT continent, SUM(py.population) 'Total population, 2010'
 FROM population_years py
 INNER JOIN countries c
-ON c.id = py.id
+ON c.id = py.country_id
 WHERE year <= 2010
 GROUP BY continent;
-*/
