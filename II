@@ -1,0 +1,28 @@
+SELECT COUNT(DISTINCT year) from population_years;
+
+SELECT MAX(population), year 
+FROM population_years
+WHERE country = 'Gabon';
+
+SELECT * 
+FROM population_years
+WHERE year = 2005
+ORDER BY population ASC
+LIMIT 10;
+
+SELECT DISTINCT country, population
+FROM population_years
+WHERE population > 100 AND year = 2010
+ORDER BY population DESC;
+
+SELECT COUNT(DISTINCT country) 'Island countries'
+FROM population_years
+WHERE country LIKE '%islands%';
+
+SELECT population 
+FROM population_years
+WHERE country = 'Indonesia' AND year = 2010
+OR
+country = 'Indonesia' AND year = 2000
+;
+SELECT 242.96834-214.67661;
